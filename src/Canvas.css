@@ -1,0 +1,152 @@
+/* canvascss Container */
+.canvascss-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* canvascss */
+.canvascss {
+  border: 2px solid #333;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* Buttons Container */
+.buttons-container {
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+/* Button Styles */
+.buttons {
+  background-color: yellow; /* Pacman Yellow */
+  color: #000; /* Black */
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Press Start 2P', cursive; /* Retro game font */
+}
+
+.buttons:hover {
+  background-color: #000; /* Black */
+  color: #FFD700; /* Pacman Yellow */
+}
+
+/* Small Text */
+.smalls-text {
+  font-size: 30px;
+  color: #000000;
+}
+
+/* Heading and Instructions */
+h1, .instructions {
+  color: #000000;
+  margin-top: 10px;
+  font-size: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  color: #000000;
+  margin-top: 10px;
+  margin-left: 40px;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Input and Label Styles */
+.input-label {
+  display: block;
+  color: #333;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.input-field {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #1e1818;
+  border-radius: 4px;
+  margin-top: 5px;
+  width: 500px;
+}
+
+.add_point{
+
+}
+
+
+.input-container {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+}
+
+.input-container input {
+  margin-right: 10px; /* Add some space between input and button */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+.centered-input {
+  text-align: center;
+}
+
+.textbox-container {
+  position: absolute;
+  top: 720px; /* Adjust as needed */
+  left: 55px; /* Adjust as needed */
+}
+
+.custom-textbox {
+  width: 1000px; /* Set a fixed width or adjust as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: vertical; /* Allow vertical resizing */
+  font-family: 'Press Start 2P', cursive; /* Retro game font */
+}
+
+.custom-textbox:focus {
+  outline: none; /* Remove outline on focus */
+  border-color: #007bff; /* Change border color on focus */
+}
+
+.custom-textbox::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+
+/* Error and Success Messages */
+.error-message {
+  color: #FF0000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: #008000;
+  font-size: 14px;
+  margin-top: 5px;
+}

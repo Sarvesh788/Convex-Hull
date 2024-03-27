@@ -1,0 +1,19 @@
+.dotted-line {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth movement */
+}
+
+.dotted-line.move-down {
+  transform: translateY(20vh); /* Move down when class is added */
+}
+
+.dotted-line.move-up {
+  transform: translateY(-20vh); /* Move up when class is added */
+}
+
+.dot {
+  background-color: black; /* Change the color of the dots as needed */
+  border-radius: 50%;
+  margin-right: 4px; /* Adjust the spacing between dots */
+}

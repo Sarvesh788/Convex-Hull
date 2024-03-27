@@ -1,0 +1,20 @@
+1. The home page buttons are consuming complete container again. -> low priority.
+2. Change the mouse pos from text. -> done, mouse visible
+3. r and clear are not working, also add f for finish, etc. -> done
+4. Supporting line not working. -> IMP
+5. Points colors not maintaining.
+6. Final iteration. 
+7. Last ghost sometimes doesn't go away. 
+8. Align the next and prev button. Add a 'skip' button. -> IMP
+9. We need to press final button before prev and next. no need
+10. Points removal state is not handled. donno
+11. Add text box and add text ->
+
+Updates:
+Clear is working now.
+r is going to home page. 
+
+New Issues: 
+End might give issue -> may show last step multiple times.
+Add proper and more eloborate text.
+Features added to kps are to be added in jarvis as well.
