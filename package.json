@@ -1,6 +1,6 @@
 {
   "name": "convex-hull-visualizer",
-  "homepage": "http://Sarvesh788.github.io/Convex-Hull",
+  "homepage": "https://Sarvesh788.github.io/Convex-Hull",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.6",
     "react-pacman-progress": "^0.2.1",
+    "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "three": "^0.161.0",
     "web-vitals": "^2.1.4"
