@@ -6,6 +6,7 @@ import pacmanImageOpen from './p_right_open.png';
 import Pacman from './Pacman';
 import DottedLine from './DottedLine';
 import Canvas from './Canvas';
+import pacman_beginning from './pacman_beginning.wav';
 
 const App = () => {
   const [algorithm, setAlgorithm] = useState(null);
@@ -26,6 +27,15 @@ const App = () => {
   const pacmansRef = useRef([]);
 
   const handleAlgorithmChange = (selectedAlgorithm) => {
+    if(selectedAlgorithm === 'KPS') {
+      let audio = new Audio(pacman_beginning);
+      audio.currentTime = 0.15;
+      audio.play();
+      if(audio.currentTime >= 3)
+      {
+        audio.pause();
+      }
+    }
     setAlgorithm(selectedAlgorithm);
   };
 

@@ -5,7 +5,13 @@ import p_ope from './p_right_open.png';
 import p_clos from './p_right_close.png';
 import cyan_ from './cyan_ghost.png';
 import afraid_ from './afraid_ghost.png';
-// import hoverCoordinates from './CanvasWithHoveredCoordinates';
+import point_added from './point_added.mp3';
+import pacman_chomp from './pacman_chomp.wav';
+import pacmna_death from './pacman_death.wav';
+import pacman_extrapac from './pacman_extrapac.wav';
+import pacman_intermission from './pacman_intermission.wav';
+import state_change from './retro-video-game-coin-pickup-38299.mp3';
+import siren from './siren.mp3';
 
 var ctx;
 var canvas;
@@ -13,7 +19,7 @@ var currentPoints = [];
 var indexOfGhosts = [];
 
 // output
-var myConvexHull = []; // outputIndex, points, pairs, pairs, state
+var myConvexHull = [];
 var outputindex = 0;
 
 // var flag;
@@ -46,6 +52,7 @@ var f = false;
 var flag2 = false;
 // var list3 = [];
 var flag3 = true;
+var flag_done_ch = false;
 var idx = 0;
 var text;
 
@@ -590,13 +597,14 @@ function draw() {
         }
         pacman.draw_hull();
         console.log("FINISH draw hull call");
+        flag_done_ch = true;
         cancelAnimationFrame(req1);
         // flag2 = false;
         return;
     }
     else {
         f = true;
-        list1 = list2;
+        list1 = list2.slice();
         hull_list.push(list2[0]);
         pacman.image_open = p_open;
         pacman.image_close = p_close;
@@ -764,6 +772,7 @@ function draw_in_next() {
             ctx.lineTo(pts[0].x + 500, pts[0].y + myslope * 500);
             ctx.lineTo(pts[0].x - 500, pts[0].y - myslope * 500);
             ctx.closePath();
+            ctx.lineWidth = 5;
             ctx.strokeStyle = 'orange';
             ctx.stroke();
         }
@@ -792,12 +801,17 @@ function draw_in_next() {
         list1 = noncandidates.slice();
         list2 = hull.slice();
         list2.push(hull[0]);
+        console.log("non candidates", noncandidates);
+        console.log("list 1 is here ", list1);
+        console.log("list 2 is here ", list2);
         for (var itr = 0; itr < list2.length - 1; itr++) {
             // console.log(points[i].x, points[i].y);
             ghostList.push(new Ghost(list2[itr].x, list2[itr].y, list2[itr + 1].x, list2[itr + 1].y, cyan_g, 20));
         }
         if (list1.length > 0) {
             pacman = new Pacman(list1, p_open, p_close, 25);
+            console.log("pacman", pacman.curr_x, pacman.curr_y);
+            console.log("pacman", pacman);
         } else {
             pacman = new Pacman(list2, p_open, p_close, 25);
         }
@@ -1641,30 +1655,91 @@ const Canvas = () => {
     const [pointsInput, setPointsInput] = useState('');
     var [points, setPoints] = useState([]);
     var [val, setVal] = useState(0);
+    const keysPressed = useRef({});
     const [hoverCoordinates, setHoverCoordinates] = useState({ x: 0, y: 0 });
     const inputRef = useRef(null);
 
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'q') {
-                const newPoints = [];
-                while (newPoints.length < 20) {
-                    const x = Math.random() * canvasRef.current.width;
-                    const y = Math.random() * canvasRef.current.height;
-                    if (!newPoints.some(point => point.x === x && point.y === y)) {
-                        newPoints.push({ x, y });
-                    }
-                }
-                setPoints(prevPoints => [...prevPoints, ...newPoints]);
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-        };
-    }, []);
+    // useEffect(() => {
+    //     const handleKeyInput = (event) => {
+    //         keysPressed.current[event.key] = true;
+    
+    //         if (keysPressed.current['u'] && keysPressed.current['b']) {
+    //             for(let i = val; i < val.length - 1; i++) {  
+    //                 if(myConvexHull[val].state === 'upper_bridge') {
+    //                     break;
+    //                 }
+    //                 else
+    //                 {
+    //                     handleNext();
+    //                 }
+    //         }
+    //     }
+    
+    //         if(keysPressed.current['l'] && keysPressed.current['b']) {
+    //             for(let i = val; i < val.length - 1; i++) {
+    //                 if(myConvexHull[val].state === 'lower_bridge') {
+    //                     break;
+    //                 }
+    //                 else
+    //                 {
+    //                     handleNext();
+    //                 }
+    //             }
+    //         }
+    
+    //         if(keysPressed.current['u'] && keysPressed.current['h']) {
+    //             for(let i = val; i < val.length - 1; i++) {
+    //                 if(myConvexHull[val].state === 'upper_hull') {
+    //                     break;
+    //                 }
+    //                 else
+    //                 {
+    //                     handleNext();
+    //                 }
+    //             }
+    //         }
+    
+    //         if(keysPressed.current['l'] && keysPressed.current['h']) {
+    //             for(let i = val; i < val.length - 1; i++) {
+    //                 if(myConvexHull[val].state === 'lower_hull') {
+    //                     break;
+    //                 }
+    //                 else
+    //                 {
+    //                     handleNext();
+    //                 }
+    //             }
+    //         }
+    
+    //         if(keysPressed.current['h'])
+    //         {
+    //             for(let i = val; i < val.length - 1; i++) {
+    //                 if(myConvexHull[val].state === 'hull') {
+    //                     break;
+    //                 }
+    //                 else
+    //                 {
+    //                     handleNext();
+    //                 }
+    //             }
+    //         }
+    
+    //         if(keysPressed.current['ArrowRight']) {
+    //             handleNext();
+    //         }
+    
+    //         if(keysPressed.current['ArrowLeft']) {
+    //             handlePrev();
+    //         }
+    
+    //     };
+    
+    //     window.addEventListener('keydown', handleKeyInput);
+    
+    //     return () => {
+    //         window.removeEventListener('keydown', handleKeyInput);
+    //     };
+    // }, []);
 
     useEffect(() => {
         canvas = canvasRef.current;
@@ -1728,6 +1803,9 @@ const Canvas = () => {
             setPointsInput('');
             // Focus back on the input field
             inputRef.current.focus();
+            let audio = new Audio(point_added);
+            audio.currentTime = 0.2;
+            audio.play();
         } else {
             alert('Invalid input. Please enter valid coordinates in the format "x, y".');
         }
@@ -1740,11 +1818,19 @@ const Canvas = () => {
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             setPoints(prevPoints => [...prevPoints, { x, y }]);
+            let audio = new Audio(point_added);
+            audio.currentTime = 0.2;
+            audio.play();
         }
     };
 
-    const handleFinishClick = () => {
+    const handleFinishClick = async () => {
         setFinished(true);
+        // while(true){
+        //     await delay(1500);
+        //     let audio = new Audio(siren);
+        //     audio.play();
+        // }
     };
 
     const delay = (ms) => {
@@ -1755,8 +1841,10 @@ const Canvas = () => {
         for (let itr = val; itr < myConvexHull.length - 1; itr++) {
             val++;
             if (val === myConvexHull.length - 1) {
-                var delayHere = myConvexHull.length * 100;
-                await delay(delayHere);
+                while(flag_done_ch === false)
+                {
+                    await delay(500);
+                }
             }
             await delay(500); // Wait for 0.5 seconds
             handleNext();
@@ -1768,6 +1856,8 @@ const Canvas = () => {
 
     const clearCanvas = () => {
         setPoints([]);
+        let audio = new Audio(pacmna_death);
+        audio.play();
         setFinished(false);
     };
 
@@ -1782,6 +1872,9 @@ const Canvas = () => {
         // Draw convex hull
         if (finished) {
             // requestAnimationFrame(draw);
+            let audio = new Audio(state_change);
+            audio.play();
+
             if (req2 != null) {
                 cancelAnimationFrame(req2);
             }
@@ -1806,10 +1899,11 @@ const Canvas = () => {
         // Draw convex hull
 
         if (finished) {
+            let audio = new Audio(state_change);
+            audio.play();
             if (req2 != null) {
                 cancelAnimationFrame(req2);
             }
-            // flag4 = true;
             flag3 = true;
             flag2 = true;
             idx = index;
@@ -1817,6 +1911,76 @@ const Canvas = () => {
         }
     };
 
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'q') {
+                const newPoints = [];
+                while (newPoints.length < 20) {
+                    const x_in = Math.floor(Math.random() * (canvasRef.current.width));
+                    const y_in = Math.floor(Math.random() * (canvasRef.current.height));
+                    let x = x_in + 0.6666641235352;
+                    let y = y_in + 0.7708435058594;
+                    if (!newPoints.some(point => point.x === x && point.y === y)) {
+                        newPoints.push({ x, y });
+                    }
+                }
+                setPoints(prevPoints => [...prevPoints, ...newPoints]);
+            }
+            if(finished) {
+                if(event.key === 'ArrowRight') {
+
+                    handleNext();
+                }
+                else if(event.key === 'ArrowLeft') {
+                    handlePrev();
+                }
+                else if(event.key === 'b') {
+                    let itr = val;
+                    for(let i = itr; i < myConvexHull.length; i++) {
+                        handleNext();
+                        val++;
+                        if(myConvexHull[val].state === 'lower_bridge' || myConvexHull[val].state === 'upper_bridge' || myConvexHull[val].state === 'lower_hull' || myConvexHull[val].state === 'upper_hull' || myConvexHull[val].state === 'hull') {
+                            break;
+                        }
+                    }
+                }
+                else if(event.key === 'u') {
+                    let itr = val;
+                    for(let i = itr; i < myConvexHull.length; i++) {
+                        if(myConvexHull[val].state === 'upper_hull') {
+                            break;
+                        }
+                        handleNext();
+                        val++;
+                    }
+                }
+                else if(event.key === 'l') {
+                    let itr = val;
+                    for(let i = itr; i < myConvexHull.length; i++) {
+                        if(myConvexHull[val].state === 'lower_hull') {
+                            break;
+                        }
+                        handleNext();
+                        val++;
+                    }
+                }
+                else if(event.key === 'h') {
+                    let itr = val;
+                    for(let i = itr; i < myConvexHull.length; i++) {
+                        handleNext();
+                        val++;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [handleNext, handlePrev, finished, val]);
 
     return (
         <div>
@@ -1850,22 +2014,13 @@ const Canvas = () => {
                 className="centered-input" // Add a class for styling
             />
             <button className = 'buttons add_point' onClick={handleAddPoint}>Add Point</button>
-
-            {/* Render points list */}
-            {/* <ul>
-                {points.map((point, index) => (
-                    <li key={index}>{`(${point.x}, ${point.y})`}</li>
-                ))}
-            </ul> */}
             </div>
-            {/* <h4>Mouse Position: x={mousePos.x.toFixed(2)}, y={mousePos.y.toFixed(2)}</h4> */}
-                {/* Hovered coordinates: {hoverCoordinates.x}, {hoverCoordinates.y} */}
                 <div className="textbox-container">
                 <textarea
                 readOnly
                 className="custom-textbox"
                 value={textBoxValue} 
-                placeholder="Enter your text here..."
+                placeholder="Steps will appear here"
                 rows={4}
                 cols={50}
                 />

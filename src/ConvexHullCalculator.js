@@ -87,6 +87,7 @@ const Canvas = () => {
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             setPoints(prevPoints => [...prevPoints, { x, y }]);
+
         }
     };
 
