@@ -1,15 +1,24 @@
 {
   "files": {
-    "main.css": "/Convex-Hull/static/css/main.52835d04.css",
-    "main.js": "/Convex-Hull/static/js/main.7d25f48a.js",
+    "main.css": "/Convex-Hull/static/css/main.77711048.css",
+    "main.js": "/Convex-Hull/static/js/main.d03d3611.js",
     "static/js/453.67ad972c.chunk.js": "/Convex-Hull/static/js/453.67ad972c.chunk.js",
+    "static/media/siren-output.mp3": "/Convex-Hull/static/media/siren-output.df142fc54c677030680c.mp3",
+    "static/media/point_added.mp3": "/Convex-Hull/static/media/point_added.b6ba29659cf55d571cc0.mp3",
+    "static/media/pacman_beginning.wav": "/Convex-Hull/static/media/pacman_beginning.6f46199c9eaf3c175a23.wav",
+    "static/media/retro-video-game-coin-pickup-38299.mp3": "/Convex-Hull/static/media/retro-video-game-coin-pickup-38299.eb3f7c84dc7d7974b9ff.mp3",
+    "static/media/pacman_death.wav": "/Convex-Hull/static/media/pacman_death.770bcadbe78202a4c735.wav",
+    "static/media/die.mp3": "/Convex-Hull/static/media/die.b2075fa3223f8d659d4b.mp3",
+    "static/media/ghost-eaten.mp3": "/Convex-Hull/static/media/ghost-eaten.fb649853e4d48120710a.mp3",
+    "static/media/waza.mp3": "/Convex-Hull/static/media/waza.82860e7eb04f71216fdd.mp3",
+    "static/media/eating.mp3": "/Convex-Hull/static/media/eating.28fae97b2f0599a86cff.mp3",
     "index.html": "/Convex-Hull/index.html",
-    "main.52835d04.css.map": "/Convex-Hull/static/css/main.52835d04.css.map",
-    "main.7d25f48a.js.map": "/Convex-Hull/static/js/main.7d25f48a.js.map",
+    "main.77711048.css.map": "/Convex-Hull/static/css/main.77711048.css.map",
+    "main.d03d3611.js.map": "/Convex-Hull/static/js/main.d03d3611.js.map",
     "453.67ad972c.chunk.js.map": "/Convex-Hull/static/js/453.67ad972c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.52835d04.css",
-    "static/js/main.7d25f48a.js"
+    "static/css/main.77711048.css",
+    "static/js/main.d03d3611.js"
   ]
 }
