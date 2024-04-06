@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Convex-Hull/static/css/main.77711048.css",
-    "main.js": "/Convex-Hull/static/js/main.394edf4c.js",
+    "main.js": "/Convex-Hull/static/js/main.beef2755.js",
     "static/js/453.67ad972c.chunk.js": "/Convex-Hull/static/js/453.67ad972c.chunk.js",
     "static/media/siren-output.mp3": "/Convex-Hull/static/media/siren-output.df142fc54c677030680c.mp3",
     "static/media/point_added.mp3": "/Convex-Hull/static/media/point_added.b6ba29659cf55d571cc0.mp3",
@@ -14,11 +14,11 @@
     "static/media/eating.mp3": "/Convex-Hull/static/media/eating.28fae97b2f0599a86cff.mp3",
     "index.html": "/Convex-Hull/index.html",
     "main.77711048.css.map": "/Convex-Hull/static/css/main.77711048.css.map",
-    "main.394edf4c.js.map": "/Convex-Hull/static/js/main.394edf4c.js.map",
+    "main.beef2755.js.map": "/Convex-Hull/static/js/main.beef2755.js.map",
     "453.67ad972c.chunk.js.map": "/Convex-Hull/static/js/453.67ad972c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.77711048.css",
-    "static/js/main.394edf4c.js"
+    "static/js/main.beef2755.js"
   ]
 }
