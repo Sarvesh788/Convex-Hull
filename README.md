@@ -91,6 +91,17 @@ Experience the KPS algorithm in action as it efficiently computes the convex hul
         
 ## Where to play: https://sarvesh788.github.io/Convex-Hull
 
+## Applications of convex hull
+- ### Uses of convex-hull in Image Editing Softwares i.e. photoshop.
+    1. Magic-wand Tool
+    2. Glow & shadow Effect on layer. Can be better understand by applying on non-rectangular image.
+    3. Make a selection by ctrl+click on layer.
+
+- ### Use of convex hull algorithm in daily life
+    Gathering grain seeds on the floor by hand or using whipper.
+
+- ### Use of convex hull algorithm by weather professionals to determine area of rain fall.
+    Determine total area of waterfalls by analyzing all censors those send signal of waterfall using convex hull algorithm
 
 ## How to install
 
